@@ -55,7 +55,7 @@ Konkrétní hodnoty jsou uvedeny ve sloupci `pieces_can_be_purchased` po spušt�
 
 ---
 
-## ❓ Výzkumná otázka č.3  
+## ❓ Výzkumná otázka č. 3  
 **Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?**
 
 ### Postup:
@@ -71,7 +71,7 @@ Z výsledků vyplývá, že nejpomaleji zdražující potravinou byly `Banány �
 
 ---
 
-## ❓ Výzkumná otázka č.4  
+## ❓ Výzkumná otázka č. 4  
 **Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?**
 
 ### Postup:
@@ -85,7 +85,7 @@ Meziroční náčůst cen potravin byl vyšší než 10 % ve dvou případech:
 
 ---
 
-## ❓ Výzkumná otázka č.5  
+## ❓ Výzkumná otázka č. 5  
 **Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo následujícím roce výraznějším růstem?**
 
 ### Postup:
