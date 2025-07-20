@@ -50,7 +50,7 @@ Konkrétní hodnoty jsou uvedeny ve sloupci `pieces_can_be_purchased` po spušt�
 **Avšak pro příklad můžu uvést, že:**
 
 * Administrativní a podpůrné činnosti (Chléb): **Q1/2006** = 853 ks vs. **Q4/2018** = 874 ks
-* Stavebnictví (Mléko): **Q1/2016** = 1 086 l vs. **Q4/2018** = 1 530 l
+* Stavebnictví (Mléko): **Q1/2006** = 1 086 l vs. **Q4/2018** = 1 530 l
 * Činnosti v oblasti nemovitostí (Chléb): **Q1/2006** = 1 134 ks vs. **Q4/2018** 1 186 ks
 
 ---
