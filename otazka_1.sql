@@ -1,17 +1,18 @@
 -- Finální SQL skript pro odpověď na výzkumnou otázku:
 -- 1) Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
 
-WITH average_salaries AS ( -- CTE pro výpočet průměrné mzdy zaokrouhlené na 2 desetinná místa dle let, kvartálů a odvětví
+WITH average_salaries AS ( -- CTE výpočet průměrné měsíční mzdy podle roku, kvartálu a odvětví zaokrouhlené na 2 desetinná místa
     SELECT
-        cp.payroll_year,
-        cp.payroll_quarter,
-        cp.industry_branch_code,
-        ROUND(AVG(cp.value), 2) AS average_salary
-    FROM czechia_payroll cp
+        year AS payroll_year,
+        quarter AS payroll_quarter,
+        industry_code AS industry_branch_code,
+        ROUND(AVG(average_monthly_wage), 2) AS average_salary
+    FROM t_martin_sipek_project_SQL_primary_final
+    WHERE average_monthly_wage IS NOT NULL
     GROUP BY 
-        cp.payroll_year, 
-        cp.payroll_quarter, 
-        cp.industry_branch_code
+        year, 
+        quarter, 
+        industry_code
 )
 SELECT
     asa.payroll_year,
@@ -19,39 +20,39 @@ SELECT
     asa.industry_branch_code,
     cpib.name,
     asa.average_salary,
-    LAG(asa.average_salary) OVER ( -- LAG bere průměrnou mzdu z předchozího roku ("average_salary")
-        PARTITION BY -- data podle odvětví (kódu) a kvartálu
+    LAG(asa.average_salary) OVER (
+        PARTITION BY 
         	asa.industry_branch_code, 
         	asa.payroll_quarter
         ORDER BY 
         	asa.payroll_year
     ) AS previous_year_salary,
-    ROUND( -- výpočet nárůstu/poklesu mezd v procentech
+    ROUND( -- výpočet meziroční změny mezd v procentech
         CASE
-            WHEN LAG(asa.average_salary) OVER ( -- bere průměrnou hodnotu z předchozího roku pro stejné odvětví a kvartál 
-                PARTITION BY -- data podle odvětví (kódu) a kvartálu
-                	asa.industry_branch_code, 
-                	asa.payroll_quarter
-                ORDER BY
-                	asa.payroll_year
-            ) IS NULL THEN NULL -- pokud je předchozí hodnota NULL, vypíše NULL
-            ELSE 100 * (asa.average_salary - LAG(asa.average_salary) OVER ( -- výpočet nárůstu/poklesu v procentech ((100 * aktuální prům. mzda - předchozí prům. mzda) / předchozí prům. mzda)
+            WHEN LAG(asa.average_salary) OVER (
                 PARTITION BY 
                 	asa.industry_branch_code, 
                 	asa.payroll_quarter
                 ORDER BY 
                 	asa.payroll_year
-            )) / LAG(asa.average_salary) OVER ( 
+            ) IS NULL THEN NULL
+            ELSE 100 * (asa.average_salary - LAG(asa.average_salary) OVER (
+                PARTITION BY 
+                	asa.industry_branch_code, 
+                	asa.payroll_quarter
+                ORDER BY 
+                	asa.payroll_year
+            )) / LAG(asa.average_salary) OVER ( -- výpočet rozdílu v procentech oproti předchozímu roku
                 PARTITION BY 
                 	asa.industry_branch_code, 
                 	asa.payroll_quarter
                 ORDER BY 
                 	asa.payroll_year
             )
-        END, 2 -- zaokrouhlení výsledku na 2 desetinná místa
+        END, 2
     ) AS difference_in_percentage
 FROM average_salaries asa
-JOIN czechia_payroll_industry_branch cpib ON asa.industry_branch_code = cpib.code
+JOIN czechia_payroll_industry_branch cpib ON asa.industry_branch_code = cpib.code -- JOIN tabulky pro doplnění názvů odvětví pro větší přehlednost
 ORDER BY 
     cpib.name, 
     asa.payroll_quarter, 
