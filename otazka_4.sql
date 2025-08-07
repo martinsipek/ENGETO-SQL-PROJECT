@@ -1,14 +1,6 @@
 -- Finální SQL skript pro odpověď na výzkumnou otázku:
 -- 4) Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
 
-
--- POMOCNÁ DATA:
-
-SELECT *
-FROM czechia_price;
-
--- FINÁLNÍ SQL SKRIPT NAVAZUJÍCÍ NA KROKY VÝŠE:
-
 WITH prices_year AS ( -- CTE pro výpis průměrné ceny všech potravin podle roků
     SELECT
         EXTRACT(YEAR FROM cp.date_from) AS year,
