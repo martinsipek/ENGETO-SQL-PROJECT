@@ -1,6 +1,7 @@
 -- Vytvoření tabulky t_martin_šípek_project_SQL_primary_final 
 -- (pro data mezd a cen potravin za Českou republiku sjednocených na totožné porovnatelné období – společné roky) 
 
+-- Na konec dokumentu byl doplněn další způsob vytvoření tabulky a následné naplnění daty dle doporučení od lektora.
 
 -- ZOBRAZENÍ DAT Z TABULKY:
 
