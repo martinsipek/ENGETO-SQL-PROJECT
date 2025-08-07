@@ -1,6 +1,7 @@
 -- Vytvoření tabulky t_martin_šípek_project_SQL_secondary_final 
 -- (pro dodatečná data o dalších evropských státech).
 
+-- Na konec dokumentu byl doplněn další způsob vytvoření tabulky a následné naplnění daty dle doporučení od lektora.
 
 -- POMOCNÁ DATA:
 
