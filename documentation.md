@@ -91,7 +91,7 @@ Jinými slovy – v dostupném období byly meziroční rozdíly mezi cenami pot
 ### Poznámka:
 Je ale **důležité** zmínit, že tabulka `t_martin_sipek_project_SQL_primary_final` obsahuje **pouze společné časové období**, tj. pouze taková data, která jsou dostupná současně pro **mzdy i pro ceny potravin**. Tím pádem je **datový rozsah omezený** a některé roky s potenciálně vyššími rozdíly mezi růstem cen a růstem mezd do výběru vůbec nevstupují.
 
-Pokud bychom pracovali s širším rozsahem dat mimo tabulku `t_martin_sipek_project_SQL_primary_final`, je možné, že bychom zachytili roky, kdy byl rozdíl mezi růstem cen a růstem mezd vyšší než 10 %. Takový postup by ale odporoval zadání projektu, které požaduje zpracování dat pouze ze společného období.
+Pokud bychom pracovali s širším rozsahem dat mimo tabulku `t_martin_sipek_project_SQL_primary_final`, je možné, že bychom zachytili roky, kdy byl rozdíl mezi růstem cen a růstem mezd vyšší než 10 %. Takový postup by ale nebyl v souladu se zadáním projektu, kde se požaduje zpracování dat pouze ze společného období vycházející z vytvořené tabulky `t_martin_sipek_project_SQL_primary_final`.
 
 ---
 
