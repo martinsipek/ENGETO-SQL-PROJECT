@@ -42,7 +42,7 @@ Ne, ve všech odvětvích mzdy každý rok nerostou, **naopak**. Jsou odvětví,
 **Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?**
 
 ### Postup:
-Dle zadání jsem filtroval kategorie `Chléb` a `Mléko` _(které jsem pro lepší přehlednost přejmenoval z jejich `category_code`)_ a spočítal, kolik kusů těchto potravin lze v jednotlivých odvětvích zakoupit za **průměrnou měsíční mzdu**. Použil jsem svou předem vytvořenou tabulku t_martin_sipek_project_SQL_primary_final, která již obsahuje správně **očištěná a sloučená data** pouze za společné období a s aplikovanými filtry na typ mzdy, jednotky a výpočetní metodu.
+Dle zadání jsem filtroval kategorie `Chléb` a `Mléko` _(které jsem pro lepší přehlednost přejmenoval z jejich `category_code`)_ a spočítal, kolik kusů těchto potravin lze v jednotlivých odvětvích zakoupit za **průměrnou měsíční mzdu**. Použil jsem svou předem vytvořenou tabulku `t_martin_sipek_project_SQL_primary_final`, která již obsahuje správně **očištěná a sloučená data** pouze za společné období a s aplikovanými filtry na typ mzdy, jednotky a výpočetní metodu.
 
 ### Vyhodnocení:
 Konkrétní hodnoty jsou uvedeny ve sloupci `pieces_can_be_purchased` po spuštění SQL dotazu `otazka_2.sql`. 
